@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct {
     double re;
@@ -30,9 +31,21 @@ Complex square(Complex a) {
     return multiply(a, a);
 }
 
+void print_complex(Complex c) {
+    if (c.im >= 0)
+        printf("%.2f + %.2fi", c.re, c.im);
+    else
+        printf("%.2f - %.2fi", c.re, -c.im);
+}
+
 int main() {
    int N=3;
-   Complex numbers [N];
+   Complex* numbers = (Complex*)malloc(N * sizeof(Complex));
+
+   if (numbers == NULL) {
+        printf("Ошибка выделения памяти!\n");
+        return 1;
+   }
 
    numbers[0]=create(2,3);
    numbers[1]=create(-1,4);
@@ -56,5 +69,9 @@ int main() {
    printf(" = ");
    print_complex(Q);
    printf("\n");;
+
+   free(numbers);
+    numbers = NULL;
+
    return 0;
 } 
