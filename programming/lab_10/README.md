@@ -10,11 +10,11 @@ c: Q=a⋅(b−c)−c2
 [lab10.c](lab10.c)
 
 На оценку 4:
-Заголовочный файл:[complex.h](complex.h)
-Файл с функциями:[complex_f.c](complex_f.c)
+Заголовочный файл:[complex.h](complex.h)    
+Файл с функциями:[complex_f.c](complex_f.c)  
 Файл с функциями main:[main.c]](main.c)
 
 На оценку 5:
-Заголовочный файл:[complex.h](complex.h)
-Файл с функциями:[complex_f.c](complex_f.c)
-Файл с функциями main:[main2.c]](main2.c)
+Заголовочный файл:[complex.h](complex.h)  
+Файл с функциями:[complex_f.c](complex_f.c)  
+Файл с функциями main:[main2.c]](main2.c)  
