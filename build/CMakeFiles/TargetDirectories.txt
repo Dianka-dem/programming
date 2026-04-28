@@ -1,0 +1,4 @@
+/home/diana/Програм_2_сем/build/CMakeFiles/smarthome_lib.dir
+/home/diana/Програм_2_сем/build/CMakeFiles/main.dir
+/home/diana/Програм_2_сем/build/CMakeFiles/edit_cache.dir
+/home/diana/Програм_2_сем/build/CMakeFiles/rebuild_cache.dir
