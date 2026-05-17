@@ -54,5 +54,4 @@
 - Создаётся отдельный поток для каждого элемента массива.
 - Поток засыпает на `value` секунд, затем выводит число.
 
-<img src="<img width="861" height="827" alt="image" src="https://github.com/user-attachments/assets/021fbf5d-176d-44c9-838a-25d1068c9c0a" />
-; width="400">
+<img src="https://i.pinimg.com/originals/ae/ca/c3/aecac3d5b3a823d98c691d509f2d0858.jpg?nii=t" width="400">
