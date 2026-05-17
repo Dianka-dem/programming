@@ -1,1 +1,1 @@
-<img src=""https://static.vecteezy.com/system/resources/previews/005/051/000/non_2x/girl-student-sit-at-desk-and-study-illustration-concept-flat-illustration-isolated-on-white-background-vector.jpg" width="400">
+<img src="https://static.vecteezy.com/system/resources/previews/005/051/000/non_2x/girl-student-sit-at-desk-and-study-illustration-concept-flat-illustration-isolated-on-white-background-vector.jpg" width="400">
