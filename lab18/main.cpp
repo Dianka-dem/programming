@@ -53,6 +53,7 @@ int main() {
     std::cout << "=== PAINT with STL ===\n"
               << "Tools:\n  B - Brush   R - Rectangle   L - Line   E - Eraser   P - Picker (Pipette)\n"
               << "  +/- - Brush size\n  C - Clear canvas\n  U - Undo\n"
+              << "File Operations:\n  Ctrl+S - Save to PNG   Ctrl+O - Load from PNG\n"
               << "Filters:\n  G - Grayscale   N - Negative   M - Blur\n"
               << "Colors: 0..9 or click on palette or Right Click on Canvas\n";
 
@@ -64,14 +65,54 @@ int main() {
             // ==================== КЛАВИАТУРА ====================
             if (event.type == sf::Event::KeyPressed) {
                 
-                // Стабильная обработка Ctrl+Z по физической клавише (работает на любой раскладке)
+                // 1. Стабильная обработка Ctrl+Z по физической клавише
                 if (event.key.control && event.key.code == sf::Keyboard::Z) {
                     undo(canvas);
                     std::cout << "Undo via Ctrl+Z. Stack size: " << undoStack.size() << std::endl;
                 }
+                // ⭐ 2. СОХРАНЕНИЕ РИСУНКА (Ctrl+S)
+                else if (event.key.control && event.key.code == sf::Keyboard::S) {
+                    sf::Image saveImage;
+                    saveImage.create(WIDTH, HEIGHT);
+                    for (int y = 0; y < HEIGHT; ++y) {
+                        for (int x = 0; x < WIDTH; ++x) {
+                            saveImage.setPixel(x, y, canvas[y][x]);
+                        }
+                    }
+                    if (saveImage.saveToFile("drawing.png")) {
+                        std::cout << "Successfully saved to drawing.png" << std::endl;
+                    } else {
+                        std::cerr << "Failed to save image!" << std::endl;
+                    }
+                }
+                // ⭐ 3. ЗАГРУЗКА РИСУНКА (Ctrl+O)
+                else if (event.key.control && event.key.code == sf::Keyboard::O) {
+                    sf::Image loadImage;
+                    if (loadImage.loadFromFile("drawing.png")) {
+                        saveToUndo(canvas); // Сохраняем текущее состояние в историю перед перезаписью
+                        
+                        // Получаем размеры загруженного файла
+                        unsigned int loadWidth = loadImage.getSize().x;
+                        unsigned int loadHeight = loadImage.getSize().y;
+
+                        // Попиксельно переносим данные, учитывая возможную разницу в размерах окон
+                        for (int y = 0; y < HEIGHT; ++y) {
+                            for (int x = 0; x < WIDTH; ++x) {
+                                if (x < static_cast<int>(loadWidth) && y < static_cast<int>(loadHeight)) {
+                                    canvas[y][x] = loadImage.getPixel(x, y);
+                                } else {
+                                    canvas[y][x] = sf::Color::White; // Если картинка меньше холста, заполняем белым
+                                }
+                            }
+                        }
+                        std::cout << "Successfully loaded from drawing.png" << std::endl;
+                    } else {
+                        std::cerr << "Failed to load drawing.png! Ensure the file exists." << std::endl;
+                    }
+                }
                 else {
                     switch (event.key.code) {
-                        // Выбор инструментов по коду клавиш (Англ раскладка)
+                        // Выбор инструментов по коду клавиш
                         case sf::Keyboard::B: 
                             currentTool = Tool::BRUSH; 
                             std::cout << "Tool: BRUSH" << std::endl;
@@ -119,7 +160,7 @@ int main() {
                             std::cout << "Blur applied" << std::endl;
                             break;
 
-                        // Изменение размера кисти (Исправлен дубликат Dash/Hyphen)
+                        // Изменение размера кисти
                         case sf::Keyboard::Add:
                         case sf::Keyboard::Equal:
                             if (brushRadius < 20) brushRadius++;
@@ -164,7 +205,7 @@ int main() {
                             selectedPaletteIndex = 9; currentColor = palette[9];
                             break;
                         default:
-                            // Резервный физический скан-код для русской раскладки (если switch выше пропустил)
+                            // Резервный физический скан-код для русской раскладки
                             if (event.key.scancode == sf::Keyboard::Scan::B) currentTool = Tool::BRUSH;
                             else if (event.key.scancode == sf::Keyboard::Scan::R) currentTool = Tool::RECTANGLE;
                             else if (event.key.scancode == sf::Keyboard::Scan::L) currentTool = Tool::LINE;
