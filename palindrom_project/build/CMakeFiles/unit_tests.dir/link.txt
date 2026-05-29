@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/unit_tests.dir/tests/test_main.c.o CMakeFiles/unit_tests.dir/src/palindrom.c.o CMakeFiles/unit_tests.dir/src/logger.c.o -o unit_tests 

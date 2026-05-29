@@ -1,0 +1,19 @@
+Start testing: May 30 03:02 +07
+----------------------------------------------------------
+1/1 Testing: RunTests
+1/1 Test: RunTests
+Command: "/home/diana/palindrom_project/build/unit_tests"
+Directory: /home/diana/palindrom_project/build
+"RunTests" start time: May 30 03:02 +07
+Output:
+----------------------------------------------------------
+Test Preprocessing: PASSED
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"RunTests" end time: May 30 03:02 +07
+"RunTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 30 03:02 +07

@@ -1,0 +1,4 @@
+[2026-05-30 03:33:52] [INFO] Program started with 4 threads
+[2026-05-30 03:33:52] [INFO] Trying to open file: ../text.txt
+[2026-05-30 03:33:52] [INFO] Filtering results with word boundary validation...
+[2026-05-30 03:33:52] [INFO] Program finished successfully

@@ -1,0 +1,5 @@
+/home/diana/palindrom_project/build/CMakeFiles/palindrom.dir
+/home/diana/palindrom_project/build/CMakeFiles/unit_tests.dir
+/home/diana/palindrom_project/build/CMakeFiles/test.dir
+/home/diana/palindrom_project/build/CMakeFiles/edit_cache.dir
+/home/diana/palindrom_project/build/CMakeFiles/rebuild_cache.dir

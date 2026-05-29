@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/palindrom.dir/src/main.c.o CMakeFiles/palindrom.dir/src/palindrom.c.o CMakeFiles/palindrom.dir/src/logger.c.o -o palindrom 
